@@ -1,4 +1,4 @@
-name: Docker Build
+name: Docker Build & Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
@@ -20,3 +20,13 @@ jobs:
 
       - name: Publicar en Docker Hub
         run: docker push devm0n/lasallefoods_api:latest
+
+      - name: Ejecutar migraciones en producción
+        run: |
+          docker container run --rm \
+          -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
+          -e DATABASE_PORT=${{ secrets.DATABASE_PORT }} \
+          -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} \
+          -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
+          -e DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
+          devm0n/lasallefoods_api:latest migrate --yes
