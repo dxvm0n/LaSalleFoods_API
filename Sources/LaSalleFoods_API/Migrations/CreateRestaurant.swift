@@ -9,7 +9,7 @@ struct CreateRestaurant: AsyncMigration {
             .field("rating", .double, .required)
             .field("estimatedTime", .string, .required)
             .field("category", .string, .required)
-            .field("imageName", .string, .required)
+            .field("imageName", .custom("VARCHAR(500)"), .required)
             .field("hasPromotion", .bool, .required)
             .create()
     }
