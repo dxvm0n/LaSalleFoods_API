@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:LaSalleFoods_API}",
+            "name": "Debug LaSalleFoods_API",
+            "program": "${workspaceFolder:LaSalleFoods_API}/.build/debug/LaSalleFoods_API",
+            "preLaunchTask": "swift: Build Debug LaSalleFoods_API"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:LaSalleFoods_API}",
+            "name": "Release LaSalleFoods_API",
+            "program": "${workspaceFolder:LaSalleFoods_API}/.build/release/LaSalleFoods_API",
+            "preLaunchTask": "swift: Build Release LaSalleFoods_API"
+        }
+    ]
+}
