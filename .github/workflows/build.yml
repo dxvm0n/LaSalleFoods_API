@@ -21,7 +21,7 @@ jobs:
       - name: Publicar en Docker Hub
         run: docker push devm0n/lasallefoods_api:latest
 
-      - name: Ejecutar migraciones en producción
+      - name: Ejecutar migracion en produccion
         run: |
           docker container run --rm \
           -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
